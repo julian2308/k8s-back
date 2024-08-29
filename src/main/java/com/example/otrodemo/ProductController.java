@@ -13,13 +13,13 @@ public class ProductController {
         this.service = service;
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = {"http://146.190.196.48:3000", "*"})
     @GetMapping(path = "/products")
     public List<String> getAllProducts() {
         return service.getProducts();
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = {"http://146.190.196.48:3000", "*"})
     @PostMapping(path = "/products/{text}")
     public String addProduct(@PathVariable("text") String text) {
         Product product = new Product(text);
@@ -27,6 +27,7 @@ public class ProductController {
         return "Product created successfully";
     }
 
+    @CrossOrigin(origins = {"http://146.190.196.48:3000", "*"})
     @GetMapping(path = "/prueba")
     public String prueba() {
         return "Funca";
